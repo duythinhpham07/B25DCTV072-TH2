@@ -9,7 +9,7 @@ Trang web cho thư viện của lớp: xem danh sách sách, tìm theo tên, l�
 
 ```
 phanA-js-thuan/          Phần A - DOM thuần, viết bằng TypeScript
-  index.html             giao diện (header, main, section, footer)
+  index.html             giao diện (header, main, section, form)
   mockapi-books.json     12 cuốn sách mẫu để dán lên mockapi
   src/
     main.ts              file chính: gắn sự kiện, gọi các module

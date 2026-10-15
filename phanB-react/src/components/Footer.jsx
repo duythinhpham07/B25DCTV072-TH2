@@ -1,7 +1,7 @@
-function Footer({ author }) {
+function Footer({ name }) {
   return (
     <footer className="site-footer">
-      <p>{author} - Lập trình Web</p>
+      <p>© 2026 {name}</p>
     </footer>
   );
 }

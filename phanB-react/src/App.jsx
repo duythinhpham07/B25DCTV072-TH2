@@ -55,7 +55,7 @@ function App() {
           />
         </Section>
       </main>
-      <Footer author="Phạm Duy Thịnh - B25DCTV072" />
+      <Footer name="Thư viện lớp AIoT" />
     </div>
   );
 }
