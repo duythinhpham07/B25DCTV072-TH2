@@ -43,7 +43,7 @@ npm install
 npm run dev
 ```
 
-Phần A dùng mockapi.io, đường dẫn API nằm ở biến `API_URL` trong `phanA-js-thuan/src/api.ts`. Resource `books` có các trường `id`, `title`, `author`, `genre`, `year` (dữ liệu ban đầu lấy từ `mockapi-books.json`).
+Phần A dùng mockapi.io, đường dẫn API nằm ở biến `API_URL` trong `phanA-js-thuan/src/api.ts`. Resource `books` có các trường `id` (mockapi tự sinh), `title`, `author`, `genre`, `year`; dữ liệu ban đầu lấy từ `mockapi-books.json`.
 
 ## Chức năng đã làm
 
