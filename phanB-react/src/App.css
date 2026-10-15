@@ -1,0 +1,210 @@
+/* ===== Biến màu: class "dark" trên .app sẽ đổi sang chế độ tối ===== */
+.app {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #d9dee8;
+  --primary: #2563eb;
+  --fav: #e11d48;
+  --tag-bg: #e0e7ff;
+  --tag-text: #3730a3;
+  --header-bg: #1e3a8a;
+  color-scheme: light;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app.dark {
+  --bg: #111827;
+  --surface: #1f2937;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: #374151;
+  --primary: #3b82f6;
+  --fav: #fb7185;
+  --tag-bg: #312e81;
+  --tag-text: #c7d2fe;
+  --header-bg: #0b1220;
+  color-scheme: dark;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+main {
+  flex: 1;
+  padding-top: 8px;
+  padding-bottom: 32px;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background: var(--header-bg);
+  color: #fff;
+  padding: 16px 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fav-count {
+  margin: 0;
+}
+
+/* ===== Section ===== */
+.section h2 {
+  font-size: 1.25rem;
+  margin: 24px 0 12px;
+}
+
+.status {
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+/* ===== Nút ===== */
+.btn {
+  font: inherit;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn-outline {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
+}
+
+.genre-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-genre {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-genre.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.btn-fav {
+  background: transparent;
+  color: var(--fav);
+  border-color: var(--fav);
+}
+
+.btn-fav.active {
+  background: var(--fav);
+  color: #fff;
+}
+
+/* ===== Lưới thẻ sách: 3 cột máy tính, 1 cột điện thoại ===== */
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.book-card {
+  flex: 0 0 calc((100% - 32px) / 3);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.book-card p {
+  margin: 2px 0;
+}
+
+.book-genre {
+  align-self: flex-start;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 0.8rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.book-title {
+  margin: 10px 0 6px;
+  font-size: 1.15rem;
+}
+
+.book-code {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.book-actions {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding: 16px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .book-card {
+    flex-basis: calc((100% - 16px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .book-card {
+    flex-basis: 100%;
+  }
+
+  .site-header h1 {
+    font-size: 1.3rem;
+  }
+}
