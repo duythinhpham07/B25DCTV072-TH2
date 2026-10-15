@@ -31,6 +31,8 @@ const FIELDS: FieldName[] = ["title", "author", "genre", "year"];
 let books: Book[] = [];
 let isLoaded = false;
 const favorites = loadFavorites();
+// Id các sách đang xóa, tránh bấm Xóa 2 lần gửi DELETE 2 lần
+const deletingIds = new Set<string>();
 
 // ===== Hiển thị =====
 function updateFavCount(): void {
@@ -74,8 +76,12 @@ async function loadBooks(): Promise<void> {
 }
 
 // ===== Tìm kiếm + lọc =====
-searchInput.addEventListener("input", render);
-genreFilter.addEventListener("change", render);
+// Chưa tải xong thì chưa lọc, để không ghi đè dòng "Đang tải…" hoặc thông báo lỗi
+function handleFilter(): void {
+  if (isLoaded) render();
+}
+searchInput.addEventListener("input", handleFilter);
+genreFilter.addEventListener("change", handleFilter);
 
 // ===== Yêu thích + Xóa: event delegation trên cả danh sách =====
 bookList.addEventListener("click", async (event) => {
@@ -98,8 +104,10 @@ bookList.addEventListener("click", async (event) => {
   }
 
   if (button.dataset.action === "delete") {
+    if (deletingIds.has(book.id)) return;
     if (!confirm(`Bạn có chắc muốn xóa sách "${book.title}"?`)) return;
 
+    deletingIds.add(book.id);
     button.disabled = true;
     button.textContent = "Đang xóa…";
     try {
@@ -114,6 +122,8 @@ bookList.addEventListener("click", async (event) => {
       alert("Xóa sách thất bại, vui lòng thử lại.");
       button.disabled = false;
       button.textContent = "Xóa";
+    } finally {
+      deletingIds.delete(book.id);
     }
   }
 });

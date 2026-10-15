@@ -6,6 +6,14 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
     <title>Thư viện lớp AIoT</title>
     <link rel="stylesheet" href="/src/style.css" />
+    <script>
+      // Đặt chế độ sáng/tối ngay từ đầu để trang không bị nháy trắng khi tải lại
+      try {
+        const saved = localStorage.getItem("theme");
+        const dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      } catch {}
+    </script>
   </head>
   <body>
     <header class="site-header">
