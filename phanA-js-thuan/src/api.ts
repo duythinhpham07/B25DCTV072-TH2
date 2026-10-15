@@ -1,7 +1,7 @@
 import type { Book, NewBook } from "./types.ts";
 
-// Đổi thành link resource "books" trên mockapi.io của mình
-const API_URL = "https://YOUR_PROJECT_ID.mockapi.io/api/v1/books";
+// Link resource "books" trên mockapi.io
+const API_URL = "https://6ad030cb03feaa52b21f18de.mockapi.io/api/v1/books";
 
 export async function getBooks(): Promise<Book[]> {
   const res = await fetch(API_URL);
