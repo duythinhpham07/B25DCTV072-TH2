@@ -1,0 +1,303 @@
+/* ===== Biến màu cho chế độ sáng / tối ===== */
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #d9dee8;
+  --primary: #2563eb;
+  --primary-text: #ffffff;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --fav: #e11d48;
+  --tag-bg: #e0e7ff;
+  --tag-text: #3730a3;
+  --header-bg: #1e3a8a;
+  --header-text: #ffffff;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #111827;
+  --surface: #1f2937;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: #374151;
+  --primary: #3b82f6;
+  --danger: #f87171;
+  --success: #4ade80;
+  --fav: #fb7185;
+  --tag-bg: #312e81;
+  --tag-text: #c7d2fe;
+  --header-bg: #0b1220;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+main {
+  flex: 1;
+  padding-top: 24px;
+  padding-bottom: 32px;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 16px 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fav-count {
+  margin: 0;
+}
+
+/* ===== Nút ===== */
+.btn {
+  font: inherit;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-text);
+}
+
+.btn-outline {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
+}
+
+.btn-fav {
+  background: transparent;
+  color: var(--fav);
+  border-color: var(--fav);
+}
+
+.btn-fav.active {
+  background: var(--fav);
+  color: #fff;
+}
+
+.btn-delete {
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+/* ===== Thanh công cụ + form ===== */
+.toolbar,
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+select {
+  font: inherit;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+input.invalid,
+select.invalid {
+  border-color: var(--danger);
+}
+
+.error {
+  color: var(--danger);
+  min-height: 1.2em;
+  font-size: 0.9rem;
+}
+
+.status {
+  margin: 16px 0;
+  color: var(--muted);
+}
+
+.status.error {
+  font-size: 1rem;
+}
+
+/* ===== Lưới thẻ sách (Flexbox): 3 cột máy tính ===== */
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.book-card {
+  flex: 0 0 calc((100% - 32px) / 3);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.book-card p {
+  margin: 2px 0;
+}
+
+.book-genre {
+  align-self: flex-start;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 0.8rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.book-title {
+  margin: 10px 0 6px;
+  font-size: 1.15rem;
+}
+
+.book-code {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.book-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+/* ===== Form thêm sách ===== */
+.add-book {
+  margin-top: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.add-book h2 {
+  margin-top: 0;
+}
+
+.form-row {
+  margin-bottom: 8px;
+}
+
+.form-message {
+  margin: 12px 0 0;
+}
+
+.form-message.success {
+  color: var(--success);
+}
+
+.form-message.error {
+  color: var(--danger);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding: 16px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .book-card {
+    flex-basis: calc((100% - 16px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .book-card {
+    flex-basis: 100%;
+  }
+
+  .toolbar,
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .site-header h1 {
+    font-size: 1.3rem;
+  }
+}
