@@ -72,6 +72,11 @@ main {
   gap: 16px;
 }
 
+.fav-count,
+.header-right .btn {
+  white-space: nowrap;
+}
+
 .fav-count {
   margin: 0;
 }

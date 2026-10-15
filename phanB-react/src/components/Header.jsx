@@ -8,7 +8,7 @@ function Header({ name, favoriteCount, theme, onToggleTheme }) {
             ❤ Yêu thích: <strong>{favoriteCount}</strong>
           </p>
           <button type="button" className="btn btn-outline" onClick={onToggleTheme}>
-            {theme === "dark" ? "☀ Chế độ sáng" : "🌙 Chế độ tối"}
+            {theme === "dark" ? "☀ Bật chế độ sáng" : "🌙 Bật chế độ tối"}
           </button>
         </div>
       </div>

@@ -187,7 +187,7 @@ form.addEventListener("submit", async (event) => {
 // ===== Chế độ sáng / tối =====
 function applyTheme(theme: Theme): void {
   document.documentElement.dataset.theme = theme;
-  themeToggle.textContent = theme === "dark" ? "☀ Chế độ sáng" : "🌙 Chế độ tối";
+  themeToggle.textContent = theme === "dark" ? "☀ Bật chế độ sáng" : "🌙 Bật chế độ tối";
 }
 
 let theme = loadTheme();
